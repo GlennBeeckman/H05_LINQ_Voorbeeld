@@ -23,11 +23,20 @@ namespace Linq
             PrintCollection("De namen van de steden:", cityNames);
 
             // Oefening: De namen van de steden in de USA, gesorteerd op naam. Transformatie van Location-s naar string-s. 
-            IEnumerable<string> citiesInUSA = null;
+            IEnumerable<string> citiesInUSA = placesVisited
+                                                .Where(l => l.Country == "USA")
+                                                .Select(l => l.City)
+                                                .OrderBy(c => c);
             PrintCollection("De namen van de steden in de USA:", citiesInUSA);
 
             // transformatie van Location-s naar CityDistance-s, object initializer
-            IEnumerable<CityDistance> cityDistances = null;
+            IEnumerable<CityDistance> cityDistances = placesVisited
+                                                        .Select(l => new CityDistance
+                                                                        {
+                                                                            Country = l.Country,
+                                                                            Name = l.City,
+                                                                            DistanceInKm = (int)(l.Distance*1.61)
+                                                                        });
             PrintCollection("Afstanden in km:", cityDistances);
             Console.WriteLine();
 
@@ -55,7 +64,7 @@ namespace Linq
         {
             Console.WriteLine();
             Console.WriteLine($"----- {title} -----");
-            if (!cities.Any())
+            if (cities == null || !cities.Any())
                 Console.WriteLine("geen steden...");
             else
                 foreach (var c in cities)
