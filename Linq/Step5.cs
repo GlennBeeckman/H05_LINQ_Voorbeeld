@@ -24,6 +24,7 @@ namespace Linq
             Console.WriteLine();
 
             // Any/All:
+            //any returnt true als er 1 inzit did voldoet aan de conditie bij all moeten ze er allemaal aan voldoen
             Console.WriteLine($"Is er een stad op meer dan 5000 miles afstand? {placesVisited.Any(c => c.Distance > 5000)}");
             Console.WriteLine($"Liggen alle steden op zijn minst 2000 miles ver? {placesVisited.All(c => c.Distance >= 2000)}");
             Console.WriteLine();
