@@ -59,7 +59,7 @@ namespace Linq
                               };
             // vul selectedCities adhv een gepaste Linq expressie
             IEnumerable<string> selectedCities = cities2
-                                                    .Where(c => c.Length > 5 && c.StartsWith("s"))
+                                                    .Where(c => c.Length > 5 && c.StartsWith("S"))
                                                     .OrderByDescending(c => c.Length)
                                                     .ThenBy(c => c);
 
@@ -69,7 +69,7 @@ namespace Linq
             {
                 Console.WriteLine(city);
             }
-            Console.WriteLine();
+            //Console.WriteLine();
             Console.WriteLine("Druk op enter om verder te gaan...");
             Console.ReadLine();
         }

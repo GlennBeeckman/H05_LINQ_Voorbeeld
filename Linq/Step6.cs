@@ -25,36 +25,21 @@ namespace Linq
 
             public string LName
             {
-                get
-                {
-                    return lname;
-                }
+                get => lname;
 
-                set
-                {
-                    lname = value;
-                }
+                set => lname = value;
             }
 
             public String FName { get; set; }
 
-            public String FullName
-            {
-                get
-                {
-                    return $"{FName} {LName}";
-                }
-            }
+            public String FullName => $"{FName} {LName}";
 
             public override string ToString()
             {
                 return $"{FName} {LName}".Trim();
             }
 
-            public void DisplayName()
-            {
-                Console.WriteLine(ToString());
-            }
+            public void DisplayName() => Console.WriteLine(ToString());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Linq.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Linq
 {
@@ -12,13 +13,13 @@ namespace Linq
             IEnumerable<Location> placesVisited = TravelOrganizer.PlacesVisited;
 
             // De gemiddelde afstand van de steden
-            Console.WriteLine($"Gemiddelde afstand van de steden is {0:0} miles");
+            Console.WriteLine($"Gemiddelde afstand van de steden is {placesVisited.Average(l => l.Distance)} miles");
 
             // De afstand van de verste stad
-            Console.WriteLine($"De verste stad ligt op {0:0} miles");
+            Console.WriteLine($"De verste stad ligt op {placesVisited.Max(l => l.Distance)} miles");
 
             // De verste stad in de USA
-            Console.WriteLine($"De verste stad in de USA is {0}");
+            Console.WriteLine($"De verste stad in de USA is {placesVisited.OrderByDescending(l => l.Distance).FirstOrDefault(l => l.Country == "USA")}");
 
             // Geef de namen van de landen met steden die niet in de USA liggen en op minder dan 4600 miles afstand liggen
             IEnumerable<string> nearbyNonUSACities = null;
