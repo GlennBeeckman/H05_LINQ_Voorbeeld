@@ -7,7 +7,7 @@ namespace Extensions
     public static class StringExtension
     {
         // voorbeeld: extension method gedefinieerd op string
-        public static string RepeatText(this string s, int aantal)
+        public static string RepeatText(this string s, int aantal) 
         {
             string resultaat = string.Empty;
             for (int i = 0; i < aantal; i++)
@@ -47,9 +47,9 @@ namespace Extensions
         // maak van IsdivisibleBy een extension method gedefinieerd op een geheel getal
         // de extension method retourneert true wanneer het getal 
         // deelbaar is door een ander geheel getal (parameter!)
-        public static bool IsDivisibleBy()
+        public static bool IsDivisibleBy(this int i, int by)
         {
-            throw new NotImplementedException();
+            return i % by == 0;
         }
     }
 }

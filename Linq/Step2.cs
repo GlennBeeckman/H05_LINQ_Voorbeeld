@@ -20,14 +20,14 @@ namespace Linq
             myList.Add(10);
             Console.WriteLine($"De som is van de getallen in de lijst is {myList.Sum()}");
 
-            HashSet<double> getallenSet = new HashSet<double> { 2.5, 8.4, 10.6 };
+            HashSet<double> getallenSet = new HashSet<double> { 2.5, 8.4, 10.6 }; //in Hashset kunnen geen dubbele getallen zijn
             getallenSet.Add(2.5);
             getallenSet.Add(8.4);
             getallenSet.Add(10.6);
             Console.WriteLine($"De som van de getallen in de hashset is  {getallenSet.Sum()} ...");
             // vervang "{0}" door een correcte Linq expressie
-            Console.WriteLine($"Het minimum in de hashset is  {0} ...");
-            Console.WriteLine($"De maximum in de hashset is  {0} ...");
+            Console.WriteLine($"Het minimum in de hashset is  {getallenSet.Min()}");
+            Console.WriteLine($"De maximum in de hashset is  {getallenSet.Max()}");
 
             Stack<float> getallenStack = new Stack<float>();
             getallenStack.Push(1.5F);
@@ -36,8 +36,8 @@ namespace Linq
             float somStack = getallenStack.Sum();
             Console.WriteLine($"De som van de getallen op de stack is  {getallenStack.Sum()} ...");
             // vervang "{0}" door een correcte Linq expressie
-            Console.WriteLine($"Het gemiddelde van de getallen op de stack is  {0} ...");
-            Console.WriteLine($"Het aantal getallen op de stack is  {0} ...");
+            Console.WriteLine($"Het gemiddelde van de getallen op de stack is  {getallenStack.Average()}");
+            Console.WriteLine($"Het aantal getallen op de stack is  {getallenStack.Count()}");
 
             Console.WriteLine("Druk op enter om verder te gaan...");
             Console.ReadLine();
